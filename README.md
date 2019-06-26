@@ -1,5 +1,5 @@
 # Superparamagnetic Chain EnergyConfigurations
-A simple graphical interface built in PyQt5 to calculate and analyse the energy of different superparamangetic particle configurations.
+A simple graphical interface built in PyQt5 to calculate and analyse the energy of different superparamangetic particle configurations. Thhis is a generalisation of [SPC_EnergyConfigurations](https://github.com/agimenezromero/SPC_EnergyConfigurations) which allows the existance of two types of superparamagnetic colloids (lets say A and B) differenced by its magnetic moment. Thus, the system can be studied from the magnetic dipole fraction ![equation](https://latex.codecogs.com/gif.latex?f_d=m_B/m_A)
 
 When using this program please cite the following basic reference:
 
@@ -14,17 +14,17 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Overview](#Overview)
+   * [Overview](#overview)
    * [Table of contents](#table-of-contents)
    * [Installation](#installation)
    * [Usage](#usage)
-      * [Setting system parameters](#Setting-system-parameters)
-      * [Setting configuration parameters](#Setting-configurations-parameters)
-      * [Ploting data](#Ploting-data)
-      * [Plot customization](#Plot-customization)
-   * [Authors](#Authors)
-   * [License](#License)
-   * [Acknowledgments](#Acknowledgements)
+      * [Setting system parameters](#setting-system-parameters)
+      * [Setting configuration parameters](#setting-configuration-parameters)
+      * [Plotting data](#plotting-data)
+      * [Plot customization](#plot-customization)
+   * [Authors](#authors)
+   * [License](#license)
+   * [Acknowledgments](#acknowledgments)
 <!--te-->
 
 # Installation
@@ -33,28 +33,31 @@ Table of contents
    - NumPy
    - Matplotlib
    - PyQt5
-3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as `python3 SPC_EnergyConfigurations.pyw` in the corresponding directory.
+3. To run the program simply double-click the MagChain_EnergyConfigurations.pyw file or execute via cmd as `python3 SPC_EnergyConfigurationsMixtures.pyw` in the corresponding directory.
 
 # Usage
 
 ## Setting system parameters 
-First of all the studied system parameters must be set. This are the characteristic parameters of superparamagnetic particles, that is to say their `diameter` and `magnetic dipole moment`. One may prefer to make an adimensionalised study, in order to see more clearly how the energy changes within different configurations compared with the typical energy scale of the system (U*). This adimensionalisation has been implemented so that the user just has to check the `Adimensionalise`checkbox in the interface.
+First of all the studied system parameters must be set. This are the characteristic parameters of superparamagnetic particles, that is to say their `diameter`, `magnetic dipole moment (A)` and `dipole fraction` . One may prefer to make an adimensionalised study, in order to see more clearly how the energy changes within different configurations compared with the typical energy scale of the system (U*). This adimensionalisation has been implemented so that the user just has to check the `Adimensionalise`checkbox in the interface.
 
 ## Setting configuration parameters
 This software calculates the energy for different superparamagnetic aggregate configurations or the change of energy when moving from one configuration to another, in order to determine if the studied configurations are possible, stable, or more probable than others. The different configurations implemented are the following:
 
-- `Head to tail aggregation`: Computes the change of energy due the  head-to-tail aggregation of a particle to a linear chain as a function of the number of particles in the chain.
-- `Lateral aggregation`: Computes the change of energy due the lateral aggregation of a particle to a linear chain as a function of the number of particles in the chain. Number of particles in chains should be even for a properly study!
-- `Add dipole progression`: Computes the change of energy due the lateral insertion of a particle in a linear chain as a function of the separation between the center of the inserted particle and the line crossing the chain from head to tail. By setting `N final` greater than `N initial` one can study this process for different chain length in the same plot. The initial configuration corresponds to a lateral aggregated and we compute the change of energy respect to this configuration untill we have a linear chain because of the particle insertion. Number of particles in chains should be even for a properly study! This proces shows an energy barrier that can be studied with the following option.
+- `Head to tail aggregation`: Computes the change of energy due the head-to-tail aggregation of a B particle to a linear chain of A particles as a function of the number of particles in the chain.
+- `Lateral aggregation`: Computes the change of energy due the lateral aggregation of a B particle to a linear chain of A particles as a function of the number of particles in the chain. Number of particles in chains should be even for a properly study!
+- `Add dipole progression`: Computes the change of energy due the lateral insertion of a B particle in a linear chain of A particles as a function of the separation between the center of the inserted particle and the line crossing the chain from head to tail. By setting `N final` greater than `N initial` one can study this process for different chain length in the same plot. The initial configuration corresponds to a lateral aggregate and we compute the change of energy respect to this configuration untill we have a linear chain because of the particle insertion. Number of particles in chains should be even for a properly study! This proces shows an energy barrier that can be studied with the following option.
 - `Energy barrier`: Computes the previously mentioned energy barrier as a function of the number of particles in the chain. Number of particles in chains should be even for a properly study!
-- `Two identical head to tail`: Computes the change of energy due the head-to-tail aggregation of a chain with another of the same length.
-- `Zippering configuration`: Computes the change of energy due the lateral aggregation of a chain with another of the same length.
+- `Energy barrier vs dipole frac`: Computes the energy barrier maximum value (depending on the number of the maximum number of particles reached) for different values of the dipole fraction.
+- `Add dipole middle chain`: Computes the change of energy due the lateral insertion of a B colloid into a chain of A particles untill it becomes an A chain with a B colloid in the middle.
 
 ### Parameters
 - `N initial`: Initial length of the chains
 - `N final`: Final length of the chains
 - `Points`: Number of points reached in `Add dipole progression` method between being a lateral aggregate ![equation](https://latex.codecogs.com/gif.latex?%5Cinline%20h%3Dd%5Cfrac%7B%5Csqrt%7B3%7D%7D%7B2%7D) until being a linear one ![equation](https://latex.codecogs.com/gif.latex?%5Cinline%20h%3D0)
 - `Equil`: This number is used to plot the average from an equilibrium value.
+- `Init dipole frac`: Initial value of dipole fraction for the `Energy barrier vs dipole frac` study.
+- `Final dipole frac`: Final value of dipole fraction for the `Energy barrier vs dipole frac` study.
+- `Points`: Number of points between `Init dipole frac` and `Final dipole frac`.
 
 ## Plotting data
 Select the desired plot to visualize in the dropdown menue and click the `plot` button. Automatically a matplotlib.pyplot will be generated.
