@@ -1,5 +1,5 @@
 # Superparamagnetic Chain EnergyConfigurations
-A simple graphical interface built in PyQt5 to calculate and analyse the energy of different superparamangetic particle configurations. Thhis is a generalisation of [SPC_EnergyConfigurations](https://github.com/agimenezromero/SPC_EnergyConfigurations) which allows the existance of two types of superparamagnetic colloids (lets say A and B) differenced by its magnetic moment. Thus, the system can be studied from the magnetic dipole fraction ![equation](https://latex.codecogs.com/gif.latex?f_d=m_B/m_A)
+A simple graphical interface built in PyQt5 to calculate and analyse the energy of different superparamangetic particle configurations. This is a generalisation of [SPC_EnergyConfigurations](https://github.com/agimenezromero/SPC_EnergyConfigurations) which allows the existance of two types of superparamagnetic colloids (lets say A and B) differenced by its magnetic moment. Thus, the system can be studied from the magnetic dipole fraction ![equation](https://latex.codecogs.com/gif.latex?f_d=m_B/m_A)
 
 When using this program please cite the following basic reference:
 
