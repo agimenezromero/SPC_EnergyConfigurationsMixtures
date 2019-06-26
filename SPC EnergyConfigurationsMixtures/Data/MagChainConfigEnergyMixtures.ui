@@ -488,7 +488,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Dipole moment</string>
+          <string>Dipole moment (A)</string>
          </property>
         </widget>
        </item>
